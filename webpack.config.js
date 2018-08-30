@@ -61,11 +61,8 @@ module.exports = {
                 use: {
                     loader: 'html-loader',
                     options: {
-                        attrs: [':src'],
-                        options: {
-                            minimize: !isDev,
-                            interpolate: true,
-                        }
+                      minimize: !isDev,
+                      interpolate: true,
                     }
                 }
             },
