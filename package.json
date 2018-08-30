@@ -1,7 +1,7 @@
 {
   "name": "landingplate",
   "version": "0.0.1",
-  "description": "",
+  "description": "A modern and landing page boilerplate with webpack and bootstrap",
   "main": "index.js",
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack --mode production",
