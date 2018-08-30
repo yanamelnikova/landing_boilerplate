@@ -1,6 +1,6 @@
 # LandingPlate
 
-> A modern and landing page boilerplate with webpack and bootstrap.
+> A modern landing page boilerplate with webpack and bootstrap.
 
 ## Overview
 
