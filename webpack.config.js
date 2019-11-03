@@ -10,18 +10,18 @@ const isDev = process.env.NODE_ENV !== 'production';
 
 let envPlugins = [];
 if (isDev) {
-  envPlugins = [
-    new webpack.HotModuleReplacementPlugin(),
-  ];
+    envPlugins = [
+        new webpack.HotModuleReplacementPlugin(),
+    ];
 } else {
-  envPlugins = [
-    new MiniCssExtractPlugin({
-      filename: isDev ? '[name].css' : '[name].[hash].css',
-      chunkFilename: isDev ? '[id].css' : '[id].[hash].css',
-    }),
-    new CleanWebpackPlugin(['dist']),
-    new webpack.HashedModuleIdsPlugin(),
-  ];
+    envPlugins = [
+        new MiniCssExtractPlugin({
+            filename: isDev ? '[name].css' : '[name].[hash].css',
+            chunkFilename: isDev ? '[id].css' : '[id].[hash].css',
+        }),
+        new CleanWebpackPlugin(['dist']),
+        new webpack.HashedModuleIdsPlugin(),
+    ];
 }
 
 module.exports = {
@@ -29,7 +29,8 @@ module.exports = {
         app: './src/index.js',
     },
     devServer: {
-        contentBase: './dist',
+        contentBase: path.join(__dirname, 'src'),
+        watchContentBase: true,
         hot: true,
     },
     devtool: 'source-map',
@@ -40,9 +41,9 @@ module.exports = {
                 test: /\.scss$/,
                 use: [
                     isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
-                    { loader: 'css-loader', options: { sourceMap: true }},
-                    { loader: 'postcss-loader', options: { sourceMap: true }},
-                    { loader: 'sass-loader', options: { sourceMap: true }}
+                    {loader: 'css-loader', options: {sourceMap: true}},
+                    {loader: 'postcss-loader', options: {sourceMap: true}},
+                    {loader: 'sass-loader', options: {sourceMap: true}}
                 ]
             },
             {
@@ -61,8 +62,8 @@ module.exports = {
                 use: {
                     loader: 'html-loader',
                     options: {
-                      minimize: !isDev,
-                      interpolate: true,
+                        minimize: !isDev,
+                        interpolate: true,
                     }
                 }
             },
